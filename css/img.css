@@ -1,0 +1,7 @@
+.img-rectangle {
+    clip-path: ellipse(33% 50%);
+}
+
+.img-carree {
+    clip-path: ellipse(50% 50%);
+}
