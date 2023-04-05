@@ -93,6 +93,7 @@
 		</div>
 	</section>
 
+
 	<!-- BARRE DES JETONS -->
 	<section class="ftco-counter img bg-light" id="section-counter">
 		<div class="container">
@@ -165,7 +166,7 @@
 								<ul class="about-info mt-4 px-md-0 px-2">
 									<li class="d-flex"><span>Prénom | Nom :</span> <span>Samuel JULLY</span></li>
 									<li class="d-flex"><span>Né le :</span> <span>17 Septembre 2001</span></li>
-									<li class="d-flex"><span>Addresse :</span> <span>Reims, 51100 France</span></li>
+									<li class="d-flex"><span>Addresse :</span> <span>Reims 51100,  France</span></li>
 									<li class="d-flex"><span>Email :</span> <span>jullysamuel17@gmail.com</span></li>
 									<li class="d-flex"><span>Téléphone :</span> <span>06 95 33 74 80</span></li>
 								</ul>
@@ -592,7 +593,7 @@
 					<div class="project img shadow ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/Emplois/CANE.jpg);">
 						<div class="overlay"></div>
 						<div class="text text-center p-4">
-							<h3><a href="ca.html">Crédit Agricole du Nord-Est</a></h3>
+							<h3><a href="ca.html">Crédit Agricole du Nord Est</a></h3>
 							<span>Outils de pilotage - Développement informatique </span>
 						</div>
 					</div>
@@ -890,7 +891,7 @@
 			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 heading-section text-center ftco-animate">
 					<span class="subheading">Contact us</span>
-					<h2 class="mb-4">Have a Project?</h2>
+					<h2 class="mb-4">Vous souhaitez me contacter ?</h2>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
 				</div>
 			</div>
@@ -898,7 +899,7 @@
 			<!-- MESSAGES -->
 			<div class="row block-9">
 				<div class="col-md-8">
-					<form action="#" class="bg-light p-4 p-md-5 contact-form">
+					<form action="" class="bg-light p-4 p-md-5 contact-form">
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -907,17 +908,17 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Email :">
+									<input name="email" type="text" class="form-control" placeholder="Email :">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Objet :">
+									<input name="objet" type="text" class="form-control" placeholder="Objet :">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message :"></textarea>
+									<textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message :"></textarea>
 								</div>
 							</div>
 							<div class="col-md-12">
@@ -927,6 +928,26 @@
 							</div>
 						</div>
 					</form>
+
+					<?php
+					if (isset($_POST['message'])) {
+					$entete  = 'MIME-Version: 1.0' . "\r\n";
+					$entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+					$entete .= 'From: Portfolio.SamuelJULLY' . "\r\n";
+					$entete .= 'Reply-to: ' . $_POST['email'];
+
+					$message = '<h1>Message envoyé depuis la page Contact du Portfolio</h1>
+								<p>
+									<b>Email : </b>' . $_POST['email'] . '<br>
+									<b>Objet : </b>' . $_POST['objet'] . '<br>
+									<b>Message : </b>' . htmlspecialchars($_POST['message']) . '
+								</p>';
+
+					$retour = mail('sam.rouge17@gmail.com', 'Envoi depuis page Contact', $message, $entete);
+					if($retour)
+					echo '<p>Votre message a bien été envoyé.</p>';
+					}
+					?>
 
 				</div>
 
@@ -938,7 +959,7 @@
 								<span class="fa fa-map-marker"></span>
 							</div>
 							<div class="text">
-								<p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+								<p><span>Address:</span> Reims 51100, France</p>
 							</div>
 						</div>
 						<div class="dbox w-100 d-flex">
@@ -959,10 +980,10 @@
 						</div>
 						<div class="dbox w-100 d-flex">
 							<div class="icon d-flex align-items-center justify-content-center">
-								<span class="fa fa-globe"></span>
+								<a href="https://www.linkedin.com/in/samuel-jully-496660237/"><span class="fa fa-linkedin"></span></a>
 							</div>
 							<div class="text">
-								<p><span>Website</span> <a href="#">yoursite.com</a></p>
+								<p><span>Linkedin</span> <a href="https://www.linkedin.com/in/samuel-jully-496660237/">Samuel JULLY</a></p>
 							</div>
 						</div>
 					</div>

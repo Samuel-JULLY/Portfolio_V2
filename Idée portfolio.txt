@@ -5,6 +5,7 @@
 - STM32F7
 - ELOCA 
 - Méthaniseur
+- Panneau solaire
 - Syn'Apps
 
 
